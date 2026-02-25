@@ -12,11 +12,12 @@ import java.util.regex.Matcher;
 
 public class UserDataValidations {
 
-   /*
-    Esta funcion comprueba que lo que primero el tipo de 
-    documento sea 1 y que el DNI exista.
-    @param id un String y typeDoc un numeró entero.
-    @return boleano segun coincide el tipo y el formato del id.
+   // Author: Marina
+   /**
+    * Esta funcion comprueba que el tipo de documento sea 1 y que el DNI exista.
+    * @param typeDoc un numero entero que respresenta el tipo de documento a validar.
+    * @param id un String que contiene el id a validar.
+    * @return true si el formato es correcto, false si no lo es.
     */
    public static boolean checkld(int typeDoc, String id) {
       if (typeDoc != 1 || id.length() != 9) {
@@ -27,12 +28,12 @@ public class UserDataValidations {
       char letra = Character.toUpperCase(id.charAt(8));
       return letrasDNI.charAt(numero % 23) == letra;
    }
-
-   /*
-    Esta funcion comprueba que lo que se ingresa sea una fecha con fomrato dd/mm/yyyy
-    y que la fecha sea possible.
-    @param date un String.
-    @return boleano segun si coincide el formato.
+   
+   // Author: Marina
+   /**
+    * Esta funcion comprueba que el string introducido sea una fecha con fomrato dd/mm/yyyy y que la fecha sea possible.
+    * @param date un String que contiene la fecha a validar.
+    * @return true si el formato es correcto, false si no lo es.
     */
    public static boolean checkFormatDate(String date) {
       String[] partes = date.split("/");
@@ -59,10 +60,11 @@ public class UserDataValidations {
 
    }
 
-   /*
-    Esta funcion calcula la edad segun la fecha de nacimiento ingresada en formato dd/mm/yyyy.
-    @param birthDate un String.
-    @return numero de años.
+   // Author: Marina
+   /**
+    * Esta funcion calcula la edad segun la fecha de nacimiento ingresada en formato dd/mm/yyyy.
+    * @param birthDate un String.
+    * @return numero de años.
     */
    public static int calculateAge(String birthDate) {
       if (!checkFormatDate(birthDate)) {
@@ -77,10 +79,11 @@ public class UserDataValidations {
       return Period.between(fechaNacimiento, fechaActual).getYears();
    }
 
-   /*
-    Esta funcion comprueba que la String ingresada tenga formato codigo postal.
-    @param zip una String.
-    @return boleano segun coincida el formato..
+   // Author: Marina
+   /**
+    * Esta funcion comprueba que la String ingresada tenga formato codigo postal.
+    * @param zip un String que contiene el código postal a validar.
+    * @return true si el formato es correcto, false si no lo es.
     */
    public static boolean checkPostalCode(String zip) {
       if (zip.length() != 5) {
@@ -96,10 +99,11 @@ public class UserDataValidations {
 
    }
 
-   /*
-    Esta funcion comprueba si una String contiene solamente caracteres numericos.
-    @param str una String a validar.
-    @return true si la String contiene solo digitos, false en caso contrario.
+   // Author: Karyoli
+   /**
+    * Esta funcion comprueba si una String contiene solamente caracteres numericos.
+    * @param str un String a validar.
+    * @return true si la String contiene solo digitos, false en caso contrario.
     */
    public static boolean isNumeric(String str) {
       for (int i = 0; i < str.length(); i++) {
@@ -110,10 +114,11 @@ public class UserDataValidations {
       return true;
    }
 
-   /*
-    Esta funcion comprueba si una String contiene solamente caracteres alfabeticos.
-    @param str una String a validar.
-    @return true si la String contiene solo letras, false en caso contrario.
+   // Author: Karyoli
+   /**
+    * Esta funcion comprueba si una String contiene solamente caracteres alfabeticos.
+    * @param str un String a validar.
+    * @return true si el String contiene solo letras, false en caso contrario.
     */
    public static boolean isAlphabetic(String str) {
       for (int i = 0; i < str.length(); i++) {
@@ -123,10 +128,11 @@ public class UserDataValidations {
       return true;
    }
    
-   /*
-    Esta funcion comprueba que la String ingresada tenga formato de correo electronico válido.
-    @param email una String que contiene la dirección de correo a validar.
-    @return true si el email tiene formato válido, false en caso contrario.
+   // Author: Karyoli
+   /**
+    * Esta función comprueba que la String ingresada tenga formato de correo electronico válido.
+    * @param email un String que contiene la dirección de correo a validar
+    * @return true si el email tiene formato válido, false en caso contrario.
     */
    public static boolean checkEmail(String email) {
       String emailPattern = "^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
@@ -137,10 +143,11 @@ public class UserDataValidations {
       return matcher.matches();
    }
    
-   /*
-    Esta funcion comprueba que el nombre tenga al menos 3 caracteres y contenga solo letras.
-    @param name una String que contiene el nombre a validar.
-    @return true si el nombre es valido (mayor o igual a 3 caracteres alfabeticos), false en caso contrario.
+   // Author: Karyoli
+   /**
+    * Esta función comprueba que el nombre tenga al menos 3 caracteres y contenga solo letras.
+    * @param name un String que contiene el nombre a validar.
+    * @return true si el nombre es valido (mayor o igual a 3 caracteres alfabeticos), false en caso contrario.
     */
    public static boolean checkName(String name) {
       return (name.length() < 3 && !isAlphabetic(name));
