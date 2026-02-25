@@ -30,86 +30,90 @@ public class Main {
 
             switch (op) {
                case 1 -> {
-                  System.out.println("typeDoc: ");
+                  System.out.println("Document to validate");
+                  System.out.print("TypeDoc: ");
                   int doc1 = scan.nextInt();
-                  System.out.println("id: ");
+                  System.out.print("id: ");
                   String id1 = scan.next();
                   if (UserDataValidations.checkld(doc1, id1)) {
-                     System.out.println(ANSI_GREEN + "true");
+                     System.out.println(ANSI_GREEN + "Valid id");
                   } else {
-                     System.out.println(ANSI_RED + "false");
+                     System.out.println(ANSI_RED + "Invalid id");
                   }
                   break;
                }
                case 2 -> {
-                  System.out.println("date: ");
+                  System.out.print("Date to validate: ");
                   String date = scan.next();
                   if (UserDataValidations.checkFormatDate(date)) {
-                     System.out.println(ANSI_GREEN + "true");
+                     System.out.println(ANSI_GREEN + "Date is valid");
                   } else {
-                     System.out.println(ANSI_RED + "false");
+                     System.out.println(ANSI_RED + "Invalid Date");
                   }
                   break;
                }
                case 3 -> {
-                  System.out.println("agedate dd/MM/yyyy: ");
+                  System.out.print("Agedate dd/MM/yyyy: ");
                   String agedate = scan.next();
                   int fi = UserDataValidations.calculateAge(agedate);
-                  System.out.println(fi);
+                  if (fi == -1) 
+                     System.out.println("Date is invalid");
+                  else
+                     System.out.println("Your age is " + fi);
                   break;
                }
                case 4 -> {
-                  System.out.println("codigo postal: ");
+                  System.out.print("Postal Code to validate: ");
                   String cp = scan.next();
                   if (UserDataValidations.checkPostalCode(cp)) {
-                     System.out.println(ANSI_GREEN + "true");
+                     System.out.println(ANSI_GREEN + "Valid Postal Code");
                   } else {
-                     System.out.println(ANSI_RED + "false");
+                     System.out.println(ANSI_RED + "Invalid Postal Code");
                   }
                   break;
                }
                case 5 -> {
-                  System.out.println("Number to validate: ");
+                  System.out.print("Number to validate: ");
                   String str = scan.next();
 
                   if (UserDataValidations.isNumeric(str)) {
-                     System.out.println(ANSI_GREEN  + "SI es numerico");
+                     System.out.println(ANSI_GREEN  + "IS number");
                   } else {
-                     System.out.println(ANSI_RED + "NO es numerico");
+                     System.out.println(ANSI_RED + "Is NOT a number");
                   }
                   break;
                }
                case 6 -> {
-                  System.out.println("String to validate: ");
+                  System.out.print("String to validate: ");
                   scan.nextLine();
                   String str = scan.nextLine();
                   if (UserDataValidations.isAlphabetic(str)) {
-                     System.out.println(ANSI_GREEN + "SI es alfabetico");
+                     System.out.println(ANSI_GREEN + "IS alphabetic");
                   } else {
-                     System.out.println(ANSI_RED + "NO es alfabetico");
+                     System.out.println(ANSI_RED + "Is NOT alphabetic");
                   }
                   break;
                }
 
                case 7 -> {
-                  System.out.println("Email to validate: ");
+                  System.out.print("Email to validate: ");
                   scan.nextLine();
                   String str = scan.nextLine();
                   if (UserDataValidations.checkEmail(str)) {
-                     System.out.println(ANSI_GREEN + "SI es valido");
+                     System.out.println(ANSI_GREEN + "Valid Email");
                   } else {
-                     System.out.println(ANSI_RED + "NO es valido");
+                     System.out.println(ANSI_RED + "Invalid Email");
                   }
                   break;
                }
                case 8 -> {
-                  System.out.println("Name to validate: ");
+                  System.out.print("Name to validate: ");
                   scan.nextLine();
                   String str = scan.nextLine();
                   if (UserDataValidations.checkName(str)) {
-                     System.out.println(ANSI_GREEN + "SI es valido");
+                     System.out.println(ANSI_GREEN + "Valid Name");
                   } else {
-                     System.out.println(ANSI_RED + "NO es valido");
+                     System.out.println(ANSI_RED + "Invalid Name");
                   }
                   break;
                }
